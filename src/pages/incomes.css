@@ -1,0 +1,289 @@
+.incomes-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(229, 233, 245);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-left: 100px;
+  overflow: auto;
+}
+
+.incomes-content-table {
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 1rem;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+}
+
+.incomes-content-table thead tr {
+  background-color: rgb(168, 179, 220);
+  color: rgb(20, 13, 81);
+  text-align: left;
+}
+
+.incomes-content-table td {
+  min-width: 100px;
+}
+
+.incomes-content-table th,
+.incomes-content-table td {
+  padding: 6px 10px;
+}
+
+.incomes-content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.incomes-content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.incomes-content-table tbody tr:hover {
+  background-color: rgb(20, 13, 81);
+  text-align: left;
+  color: white;
+}
+
+.incomes-content-table tbody tr:nth-of-type(even):hover {
+  background-color: rgb(20, 13, 81);
+  text-align: left;
+  color: white;
+}
+
+.incomes-content-table tbody tr:last-of-type {
+  border-bottom: 2px solid rgb(20, 13, 81);
+}
+
+.incomes-content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+.uploadFile-modal-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.uploadFile-modal {
+  width: 400px;
+
+  margin-top: 200px;
+  background-color: rgb(50, 64, 117);
+  color: rgb(168, 179, 220);
+  align-items: center;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+
+.uploadFile-modal form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.income-delete-modal-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.income-delete-modal {
+  width: 300px;
+  margin-top: 200px;
+  background-color: rgb(50, 64, 117);
+  color: rgb(168, 179, 220);
+  align-items: center;
+  padding: 20px 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.incomes-btn-upload {
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  background-image: url("../assets/upload.png");
+  background-size: cover;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.input-date {
+  background-color: rgb(168, 179, 220);
+  padding: 5px 10px;
+  color: white;
+  font-size: 14px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+}
+
+.filtros-container {
+  width: 100%;
+  background-color: rgb(50, 64, 117);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.filtros-container form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.filtros-container div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.filtros-fecha-container {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+.incomes-modal-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.incomes-modal {
+  width: 400px;
+  margin-top: 200px;
+  background-color: rgb(50, 64, 117);
+  color: rgb(168, 179, 220);
+  align-items: center;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+
+.incomes-modal span {
+  color: red;
+}
+
+.incomes-form-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.incomes-form-container input {
+  width: 300px;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  padding: 5px 10px;
+}
+.incomes-form-container button {
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid;
+  margin-top: 10px;
+}
+
+.modal-actions button {
+  border-radius: 5px;
+  width: 100px;
+  background-color: orangered;
+  color: white;
+  border: 1px solid black;
+  padding: 3px 5px;
+}
+
+.modal-selects-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.modal-selects-container select {
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+
+.inputs-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.edit-modal-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: rgb(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-modal {
+  width: 400px;
+  margin-top: 200px;
+  background-color: rgb(50, 64, 117);
+  color: rgb(168, 179, 220);
+  align-items: center;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+
+.income-delete-modal {
+  text-align: center;
+}
+
+.income-delete-modal label {
+  color: white;
+}
+
+.ingresos-total-filtrado {
+  font-size: 3rem;
+  color: green;
+}

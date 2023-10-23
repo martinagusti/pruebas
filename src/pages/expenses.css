@@ -1,0 +1,54 @@
+.expenses-container {
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgb(229, 233, 245);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.expenses-container select {
+  min-width: 200px;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+.box-table-content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin-left: 100px;
+  overflow: auto;
+}
+
+.fechaPago-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.income-search-input {
+  width: 20%;
+  height: 20px;
+  background-color: rgb(20, 13, 81);
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.input-search-estado {
+  height: 30px;
+  background-color: rgb(20, 13, 81);
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.egresos-total-filtrado {
+  font-size: 3rem;
+  color: red;
+}

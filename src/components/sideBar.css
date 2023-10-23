@@ -1,0 +1,109 @@
+.sideBar-container {
+  width: 50px;
+  height: 98vh;
+  background-color: rgb(20, 13, 81);
+  color: white;
+  position: absolute;
+  top: 0;
+  padding: 10px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+}
+
+.sideBar-container div {
+  border-radius: 3px;
+}
+
+.sideBar-container div:hover {
+  cursor: pointer;
+  background-color: rgb(255, 69, 0, 0.8);
+}
+
+.img-logo {
+  width: 50px;
+  height: 50px;
+  background-image: url("../assets/logo.jpeg");
+  background-size: cover;
+}
+
+.img-salePoint {
+  width: 50px;
+  height: 50px;
+  background-image: url("../assets/tienda.png");
+  background-size: cover;
+}
+
+.img-provider {
+  width: 50px;
+  height: 50px;
+  background-image: url("../assets/proveedor.png");
+  background-size: cover;
+}
+
+.page-active {
+  background-color: orangered;
+}
+
+.img-incomes {
+  width: 50px;
+  height: 50px;
+  background-image: url("../assets/ingresos.png");
+  background-size: cover;
+}
+
+.img-expenses {
+  width: 50px;
+  height: 50px;
+  background-image: url("../assets/expenses.png");
+  background-size: cover;
+}
+
+.img-reports {
+  width: 50px;
+  height: 50px;
+  background-image: url("../assets/reportes.png");
+  background-size: cover;
+}
+.img-logout {
+  width: 50px;
+  height: 50px;
+  background-image: url("../assets/logout.png");
+  background-size: cover;
+}
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip-box {
+  min-width: 110px;
+  display: none;
+  position: absolute;
+  background-color: rgb(50, 64, 117);
+  z-index: 500;
+  text-align: center;
+  color: white;
+  padding: 5px 10px;
+  bottom: 10px;
+  left: 70px;
+  border-radius: 5px;
+}
+
+.tooltip:hover .tooltip-box {
+  display: inline-block;
+}
+
+.tooltip-box::after {
+  content: "";
+  display: block;
+  border-right: 7px solid rgb(50, 64, 117);
+  border-top: 7px solid transparent;
+  border-left: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  position: absolute;
+  left: -12px;
+  bottom: 7px;
+}
