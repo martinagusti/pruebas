@@ -70,7 +70,7 @@ function Reports() {
     arrayEgresosMensual.push(
       expenses
         .filter((element) => {
-          const date = new Date(element.date);
+          const date = new Date(element.expenseDate);
           if (
             date.getDate() == i &&
             date.getMonth() == month &&
@@ -91,7 +91,7 @@ function Reports() {
     arrayEgresos.push(
       expenses
         .filter((element) => {
-          const date = new Date(element.date);
+          const date = new Date(element.expenseDate);
           if (date.getMonth() == i && date.getFullYear() == age) {
             return element.amount;
           }

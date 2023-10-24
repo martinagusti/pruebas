@@ -283,16 +283,11 @@ function Incomes() {
 
     const arr = fileName.split("\\");
 
-    setIncomes(
-      incomes.map((element) => {
-        if (element.id === fileId) {
-          element.document = `${date.getDate()}${
-            date.getMonth() + 1
-          }${date.getFullYear()}${arr[arr.length - 1]}`;
-        }
-        return element;
-      })
-    );
+    setTimeout(async () => {
+      const data = await getIncomes();
+      setViewFileModal(false);
+      setIncomes(data);
+    }, 800);
     /* setViewFileModal(false); */
   };
 
