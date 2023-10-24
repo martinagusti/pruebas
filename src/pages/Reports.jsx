@@ -70,7 +70,7 @@ function Reports() {
     arrayEgresosMensual.push(
       expenses
         .filter((element) => {
-          const date = new Date(element.expenseDate);
+          const date = new Date(element.date);
           if (
             date.getDate() == i &&
             date.getMonth() == month &&
@@ -91,7 +91,7 @@ function Reports() {
     arrayEgresos.push(
       expenses
         .filter((element) => {
-          const date = new Date(element.expenseDate);
+          const date = new Date(element.date);
           if (date.getMonth() == i && date.getFullYear() == age) {
             return element.amount;
           }
@@ -224,13 +224,6 @@ function Reports() {
   let ingresos2023 = arrayIngresos.reduce((acumulador, numero) => {
     return acumulador + parseFloat(numero);
   }, 0);
-
-  console.log(
-    new Intl.NumberFormat("de-DE", {
-      style: "currency",
-      currency: "EUR",
-    }).format(ingresos2023)
-  );
 
   let ingresosMensual2023 = arrayIngresosMensual.reduce(
     (acumulador, numero) => {

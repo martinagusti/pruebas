@@ -108,12 +108,9 @@ function Expenses() {
     console.log(formJson); */
 
     try {
-      console.log(data);
       if (data.status == "no pagado") {
         data.fechaPago = null;
       }
-
-      console.log(data);
 
       const {
         idPoint,
@@ -140,7 +137,7 @@ function Expenses() {
       const allExpenses = await getExpenses();
       reset();
       setExpenses(allExpenses);
-
+      setErrorText(null);
       setTimeout(() => {
         setViewInsertExpense(false);
       }, 500);
@@ -717,7 +714,7 @@ function Expenses() {
 
           <tbody>
             {expenses.map((element) => {
-              const date = new Date(element.expenseDate);
+              const date = new Date(element.date);
               const expenseDate = new Date(element.expenseDate);
               const fechaPago = new Date(element.paydate);
 
