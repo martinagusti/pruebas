@@ -484,10 +484,7 @@ function Incomes() {
                     <td>
                       {
                         /* {element.document} */ <a
-                          href={`${
-                            import.meta.env.VITE_BACKEND_URL
-                          }/incomeFiles/${element.document}`}
-                          target="_blank"
+                          href={`https://pruebasgestion.blob.core.windows.net/imagenes/${element.document}`}
                           download="archivo.txt"
                         >
                           {element.document}

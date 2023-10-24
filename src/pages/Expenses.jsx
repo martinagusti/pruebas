@@ -99,8 +99,6 @@ function Expenses() {
     return b.id - a.id;
   });
 
-  console.log(expenses);
-
   const onSubmit = async (data, e) => {
     e.preventDefault();
 
@@ -156,9 +154,6 @@ function Expenses() {
     e.preventDefault();
 
     let allExpenses = await getExpenses();
-
-    console.log(allExpenses);
-    console.log(idPuntoVenta);
 
     if (idPuntoVenta !== "") {
       allExpenses = allExpenses.filter((element) => {
@@ -353,10 +348,6 @@ function Expenses() {
 
   const editSave = async (e) => {
     e.preventDefault();
-    console.log(editIdPoint);
-    console.log(editIdProvider);
-
-    console.log(editFechaFactura);
 
     const edited = await updateExpense(
       editIdPoint,
@@ -369,13 +360,12 @@ function Expenses() {
       e.target.editConcept.value,
       editId
     );
-    console.log(edited);
+
     setExpenses(await getExpenses());
     setViewEditModal(false);
   };
 
   const edit = (element) => {
-    console.log(element);
     setEditPoint(element.pointName);
     setEditProvider(element.providerName);
     setEditId(element.id);
@@ -727,7 +717,7 @@ function Expenses() {
 
           <tbody>
             {expenses.map((element) => {
-              const date = new Date(element.date);
+              const date = new Date(element.expenseDate);
               const expenseDate = new Date(element.expenseDate);
               const fechaPago = new Date(element.paydate);
 
