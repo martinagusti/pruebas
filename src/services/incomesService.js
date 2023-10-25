@@ -46,3 +46,12 @@ export const deleteIncome = async (id) => {
 
   return deleted.data;
 };
+
+export const uploadIncomeFile = async (formData, id) => {
+  const uploaded = await axios.post(
+    `${import.meta.env.VITE_BACKEND_URL}/incomes/files/${id}`,
+    formData,
+    { "Content-Type": "multipart/form-data" }
+  );
+  return uploaded.data;
+};

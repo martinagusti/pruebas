@@ -9,6 +9,7 @@ import {
 } from "../services";
 import { useForm } from "react-hook-form";
 import usePointsOfSale from "../hooks/usePointsOfSale";
+import { uploadIncomeFile } from "../services/incomesService";
 
 function Incomes() {
   const { incomes, setIncomes, error, loading } = useIncomes();
@@ -278,17 +279,29 @@ function Incomes() {
     setViewEditModal(true);
   };
 
-  const cargarArchivo = async () => {
-    const date = new Date();
+  const cargarArchivo = async (event) => {
+    event.preventDefault();
 
-    const arr = fileName.split("\\");
+    try {
+      const archivo = event.target[0].files[0];
+      const formData = new FormData();
+      formData.append("avatar", archivo);
+      const datos = await uploadIncomeFile(formData, fileId);
 
-    setTimeout(async () => {
-      const data = await getIncomes();
-      setViewFileModal(false);
-      setIncomes(data);
-    }, 800);
-    /* setViewFileModal(false); */
+      const date = new Date();
+
+      const arr = fileName.split("\\");
+
+      setTimeout(async () => {
+        const data = await getIncomes();
+        setViewFileModal(false);
+        setIncomes(data);
+      }, 800);
+      /* setViewFileModal(false); */
+    } catch (error) {
+      console.log(error);
+      setErrorText(error.response.data.error);
+    }
   };
 
   console.log(incomes);
@@ -519,13 +532,13 @@ function Incomes() {
           <div className="uploadFile-modal-container">
             <div className="uploadFile-modal">
               <form
-                onSubmit={() => cargarArchivo()}
-                action={`${
+                onSubmit={(event) => cargarArchivo(event)}
+                /* action={`${
                   import.meta.env.VITE_BACKEND_URL
                 }/incomes/files/${fileId}`}
                 target="_blank"
                 method="post"
-                encType="multipart/form-data"
+                encType="multipart/form-data" */
               >
                 <input
                   type="file"

@@ -70,3 +70,12 @@ export const deleteExpense = async (id) => {
 
   return deleted.data;
 };
+
+export const uploadExpenseFile = async (formData, id) => {
+  const uploaded = await axios.post(
+    `${import.meta.env.VITE_BACKEND_URL}/expenses/files/${id}`,
+    formData,
+    { "Content-Type": "multipart/form-data" }
+  );
+  return uploaded.data;
+};

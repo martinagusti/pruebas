@@ -10,6 +10,7 @@ import {
   updateExpense,
 } from "../services";
 import usePointsOfSale from "../hooks/usePointsOfSale";
+import { uploadExpenseFile } from "../services/expensesService";
 
 function Expenses() {
   const { expenses, setExpenses, error, loading } = useExpenses();
@@ -313,16 +314,28 @@ function Expenses() {
     setFileId(element.id);
   };
 
-  const cargarArchivo = async () => {
-    const date = new Date();
+  const cargarArchivo = async (event) => {
+    event.preventDefault();
+    try {
+      const archivo = event.target[0].files[0];
+      const formData = new FormData();
+      formData.append("avatar", archivo);
+      const datos = await uploadExpenseFile(formData, fileId);
+      console.log(datos);
 
-    const arr = fileName.split("\\");
+      const date = new Date();
 
-    setTimeout(async () => {
-      const data = await getExpenses();
-      setViewFileModal(false);
-      setExpenses(data);
-    }, 800);
+      const arr = fileName.split("\\");
+
+      setTimeout(async () => {
+        const data = await getExpenses();
+        setViewFileModal(false);
+        setExpenses(data);
+      }, 800);
+    } catch (error) {
+      console.log(error);
+      setErrorText(error.response.data.error);
+    }
 
     /* setViewFileModal(false); */
   };
@@ -787,13 +800,13 @@ function Expenses() {
         <div className="uploadFile-modal-container">
           <div className="uploadFile-modal">
             <form
-              onSubmit={() => cargarArchivo()}
-              action={`${
+              onSubmit={(event) => cargarArchivo(event)}
+              /* action={`${
                 import.meta.env.VITE_BACKEND_URL
               }/expenses/files/${fileId}`}
               target="_blank"
               method="post"
-              encType="multipart/form-data"
+              encType="multipart/form-data" */
             >
               <input
                 type="file"
