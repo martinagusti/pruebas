@@ -165,15 +165,15 @@ function Expenses() {
         .includes(proveedores?.toLowerCase());
     });
     console.log(estado);
-    if (estado === "pagado") {
+    if (estado === "PAGADO") {
       filtered = filtered.filter((element) => {
-        return element.status === "pagado";
+        return element.status === "PAGADO";
       });
     }
 
-    if (estado === "no pagado") {
+    if (estado === "NO PAGADO") {
       filtered = filtered.filter((element) => {
-        return element.status === "no pagado";
+        return element.status === "NO PAGADO";
       });
     }
     console.log(filtered);
@@ -217,15 +217,15 @@ function Expenses() {
     } else {
       /* let allExpenses = await getExpenses(); */
 
-      if (estado === "pagado") {
+      if (estado === "PAGADO") {
         allExpenses = allExpenses.filter((element) => {
-          return element.status === "pagado";
+          return element.status === "PAGADO";
         });
       }
 
-      if (estado === "no pagado") {
+      if (estado === "NO PAGADO") {
         allExpenses = allExpenses.filter((element) => {
-          return element.status === "no pagado";
+          return element.status === "NO PAGADO";
         });
       }
       setExpenses(
@@ -520,8 +520,8 @@ function Expenses() {
               className="input-search-estado"
             >
               <option value={null}>Todos</option>
-              <option value="pagado">Pagado</option>
-              <option value="no pagado">No Pagado</option>
+              <option value="PAGADO">Pagado</option>
+              <option value="NO PAGADO">No Pagado</option>
             </select>
             <button type="submit" className="points-lupa-btn"></button>
           </div>
