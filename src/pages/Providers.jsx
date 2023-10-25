@@ -98,7 +98,8 @@ function Providers({ providers, setProviders }) {
   };
 
   const searchByName = async () => {
-    const filtered = providers.filter((element) => {
+    const allProviders = await getProviders();
+    const filtered = allProviders.filter((element) => {
       return element.name.toLowerCase().includes(search.toLowerCase());
     });
     if (search !== "") {

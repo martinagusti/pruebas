@@ -36,6 +36,7 @@ function Incomes() {
   const [editId, setEditId] = useState();
   const [deleteId, setDeleteId] = useState();
   const [deleteIdName, setDeleteIdName] = useState();
+  const [tipo, setTipo] = useState("");
 
   const [errorText, setErrorText] = useState();
 
@@ -97,10 +98,19 @@ function Incomes() {
     e.preventDefault();
 
     const allIncomes = await getIncomes();
+    console.log(allIncomes);
 
-    const filtered = allIncomes.filter((element) => {
-      return element.name.toLowerCase().includes(puntosVenta?.toLowerCase());
-    });
+    const filtered = allIncomes
+      .filter((element) => {
+        return element.idPointsOfSale == puntosVenta;
+      })
+      .filter((element) => {
+        if (tipo != "") {
+          return element.type == tipo;
+        } else {
+          return element;
+        }
+      });
     if (puntosVenta !== "") {
       setIncomes(
         filtered.filter((element) => {
@@ -139,8 +149,16 @@ function Incomes() {
       );
     } else {
       const allIncomes = await getIncomes();
+
+      const filtered = allIncomes.filter((element) => {
+        if (tipo != "") {
+          return element.type == tipo;
+        } else {
+          return element;
+        }
+      });
       setIncomes(
-        allIncomes.filter((element) => {
+        filtered.filter((element) => {
           const dateDesde = new Date(e.target.desde.value);
           const dateHasta = new Date(e.target.hasta.value);
 
@@ -152,7 +170,7 @@ function Incomes() {
           );
         })
       );
-      const totalIngresos = allIncomes
+      const totalIngresos = filtered
         .filter((element) => {
           const dateDesde = new Date(e.target.desde.value);
           const dateHasta = new Date(e.target.hasta.value);
@@ -187,6 +205,9 @@ function Incomes() {
 
   const handleOnChangeIdPuntoVenta = (e) => {
     setIdPuntoVenta(e.target.value);
+  };
+  const handleOnChangeTipo = (e) => {
+    setTipo(e.target.value);
   };
 
   const handleOnChangeAmount = (e) => {
@@ -332,14 +353,36 @@ function Incomes() {
             </div>
 
             <div>
-              <input
-                type="text"
-                id="puntosVenta"
-                defaultValue={puntosVenta}
-                placeholder="Puntos de venta"
+              <select
+                className="input-search-estado"
+                name="idPuntoVenta"
+                id="lang"
                 onChange={handleOnChangeSearchPointOfSale}
-                className="point-search-input"
-              />
+                value={puntosVenta}
+              >
+                <option value="">Punto de Venta (Todos)</option>
+
+                {pointsOrdered.map((element, index) => {
+                  return (
+                    <option value={element.ID} key={index}>
+                      {element.name}
+                    </option>
+                  );
+                })}
+              </select>
+
+              <select
+                className="input-search-estado"
+                name="idPuntoVenta"
+                id="lang"
+                onChange={handleOnChangeTipo}
+                value={tipo}
+              >
+                <option value="">Metodo Pago (Todos)</option>
+                <option value="efectivo">Efectivo</option>
+                <option value="tarjeta">Tarjeta</option>
+                <option value="transferencia">Transferencia</option>
+              </select>
               <button type="submit" className="points-lupa-btn"></button>
             </div>
           </form>

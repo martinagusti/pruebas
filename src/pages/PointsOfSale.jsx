@@ -100,7 +100,8 @@ function PointsOfSale({ points, setPoints }) {
   };
 
   const searchByName = async () => {
-    const filtered = points.filter((element) => {
+    const allPoints = await getPointsOfSale();
+    const filtered = allPoints.filter((element) => {
       return element.name.toLowerCase().includes(search.toLowerCase());
     });
     if (search !== "") {

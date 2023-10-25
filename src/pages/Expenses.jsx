@@ -160,15 +160,15 @@ function Expenses() {
         .includes(proveedores?.toLowerCase());
     });
 
-    if (estado === "PAGADO") {
+    if (estado === "pagado") {
       filtered = filtered.filter((element) => {
-        return element.status === "PAGADO";
+        return element.status === "pagado";
       });
     }
 
-    if (estado === "NO PAGADO") {
+    if (estado === "no pagado") {
       filtered = filtered.filter((element) => {
-        return element.status === "NO PAGADO";
+        return element.status === "no pagado";
       });
     }
 
@@ -211,15 +211,15 @@ function Expenses() {
     } else {
       /* let allExpenses = await getExpenses(); */
 
-      if (estado === "PAGADO") {
+      if (estado === "pagado") {
         allExpenses = allExpenses.filter((element) => {
-          return element.status === "PAGADO";
+          return element.status === "pagado";
         });
       }
 
-      if (estado === "NO PAGADO") {
+      if (estado === "no pagado") {
         allExpenses = allExpenses.filter((element) => {
-          return element.status === "NO PAGADO";
+          return element.status === "no pagado";
         });
       }
       setExpenses(
@@ -494,7 +494,7 @@ function Expenses() {
               onChange={handleOnChangeIdPuntoVenta}
               value={idPuntoVenta}
             >
-              <option value="">Punto de Venta</option>
+              <option value="">Punto de Venta (Todos)</option>
 
               {pointsOrdered.map((element, index) => {
                 return (
@@ -510,9 +510,9 @@ function Expenses() {
               onClick={handleOnChangeEstado}
               className="input-search-estado"
             >
-              <option value={null}>Todos</option>
-              <option value="PAGADO">Pagado</option>
-              <option value="NO PAGADO">No Pagado</option>
+              <option value={null}>Estado (Todos)</option>
+              <option value="pagado">Pagado</option>
+              <option value="no pagado">No Pagado</option>
             </select>
             <button type="submit" className="points-lupa-btn"></button>
           </div>
