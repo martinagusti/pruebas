@@ -242,7 +242,6 @@ function Reports() {
 
   const filtrar = (e) => {
     e.preventDefault();
-    console.log(e.target.age.value);
   };
 
   const handleOnChangeAge = (e) => {

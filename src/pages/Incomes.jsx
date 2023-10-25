@@ -73,7 +73,6 @@ function Incomes() {
     const formData = new FormData(e.target);
 
     const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson);
 
     try {
       const { idPuntoVenta, amount, type, concept } = data;
@@ -229,7 +228,7 @@ function Incomes() {
   const deleteIncomeFunction = async () => {
     try {
       const deleted = await deleteIncome(deleteId);
-      console.log(deleted);
+
       setIncomes(
         incomes.filter((element) => {
           return element.id !== deleteId;
@@ -244,7 +243,6 @@ function Incomes() {
   const editSave = async (e) => {
     e.preventDefault();
     try {
-      console.log(editPoint);
       const edited = await updateIncome(
         editPoint,
         e.target.editAmount.value,
@@ -252,7 +250,7 @@ function Incomes() {
         e.target.editConcept.value,
         editId
       );
-      console.log(edited);
+
       setIncomes(await getIncomes());
       setViewEditModal(false);
       setErrorText(null);
@@ -263,13 +261,11 @@ function Incomes() {
   };
 
   const uploadDocument = (element) => {
-    console.log(element.id);
     setViewFileModal(true);
     setFileId(element.id);
   };
 
   const edit = (element) => {
-    console.log(element);
     setEditId(element.id);
     setEditPoint(element.idPointsOfSale);
     setEditPointName(element.name);
@@ -303,8 +299,6 @@ function Incomes() {
       setErrorText(error.response.data.error);
     }
   };
-
-  console.log(incomes);
 
   if (loading) {
     return <h1>Loading...</h1>;

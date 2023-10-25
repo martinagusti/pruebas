@@ -103,11 +103,6 @@ function Expenses() {
   const onSubmit = async (data, e) => {
     e.preventDefault();
 
-    /*   const formData = new FormData(e.target);
-
-    const formJson = Object.fromEntries(formData.entries());
-    console.log(formJson); */
-
     try {
       if (data.status == "no pagado") {
         data.fechaPago = null;
@@ -164,7 +159,7 @@ function Expenses() {
         .toLowerCase()
         .includes(proveedores?.toLowerCase());
     });
-    console.log(estado);
+
     if (estado === "PAGADO") {
       filtered = filtered.filter((element) => {
         return element.status === "PAGADO";
@@ -176,7 +171,6 @@ function Expenses() {
         return element.status === "NO PAGADO";
       });
     }
-    console.log(filtered);
 
     if (proveedores !== "") {
       setExpenses(
@@ -289,7 +283,6 @@ function Expenses() {
 
   const handleOnChangeStatus = (e) => {
     setStatus(e.target.value);
-    console.log(status);
   };
 
   const handleOnChangeFechaFactura = (e) => {
@@ -309,7 +302,6 @@ function Expenses() {
   };
 
   const uploadDocument = (element) => {
-    console.log(element.id);
     setViewFileModal(true);
     setFileId(element.id);
   };
@@ -321,7 +313,6 @@ function Expenses() {
       const formData = new FormData();
       formData.append("avatar", archivo);
       const datos = await uploadExpenseFile(formData, fileId);
-      console.log(datos);
 
       const date = new Date();
 
@@ -343,7 +334,7 @@ function Expenses() {
   const deleteExpenseFunction = async () => {
     try {
       const deleted = await deleteExpense(deleteId);
-      console.log(deleted);
+
       setExpenses(
         expenses.filter((element) => {
           return element.id !== deleteId;

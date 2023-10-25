@@ -122,7 +122,6 @@ function Providers({ providers, setProviders }) {
     setBusinessName(element.businessName);
     setCifValue(element.cif);
     setIdEdit(element.ID);
-    console.log(element);
   };
 
   const editar = async (event) => {
@@ -138,8 +137,6 @@ function Providers({ providers, setProviders }) {
         event.target.cifValue.value,
         idEdit
       );
-
-      console.log(edited);
 
       setProviders(await getProviders());
       setEditando(false);
@@ -169,7 +166,7 @@ function Providers({ providers, setProviders }) {
   const eliminando = async () => {
     try {
       const deleted = await deleteProvider(idDelete);
-      console.log(deleted);
+
       setProviders(
         providers.filter((element) => {
           return element.ID !== idDelete;

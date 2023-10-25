@@ -42,7 +42,7 @@ function PointsOfSale({ points, setPoints }) {
           codigoPostal,
           id
         );
-        console.log(edited);
+
         setPoints(await getPointsOfSale());
         e.target.reset();
       } else {

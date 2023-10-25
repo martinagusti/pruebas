@@ -31,7 +31,6 @@ function Home({ viewOptionsModal, setViewOptionsModal }) {
   const onSubmit = async (data, e) => {
     e.preventDefault();
 
-    console.log(data);
     if (data.password !== data.confirmPassword) {
       setPasswordError(true);
       return;
@@ -44,11 +43,10 @@ function Home({ viewOptionsModal, setViewOptionsModal }) {
         password,
         confirmPassword
       );
-      console.log(registered);
 
       setPasswordError(false);
       setViewNewUserModal(false);
-      console.log("Ok!");
+
       setErrorText(null);
 
       reset();
@@ -62,7 +60,7 @@ function Home({ viewOptionsModal, setViewOptionsModal }) {
 
     try {
       const updated = await updateProfile(name, password, repeatPassword);
-      console.log(updated);
+
       setViewEditUserModal(false);
       localStorage.removeItem("peixateriaUser");
       localStorage.removeItem("peixateriaToken");
@@ -72,11 +70,6 @@ function Home({ viewOptionsModal, setViewOptionsModal }) {
       console.log(error);
       setErrorText(error.response.data.error);
     }
-    /*  if (password === repeatPassword) {
-      console.log("Todo OK");
-    } else {
-      setErrorText("No coincide la contraseña");
-    } */
   };
 
   const handleOnChangeEditName = (e) => {
