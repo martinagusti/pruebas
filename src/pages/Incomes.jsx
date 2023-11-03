@@ -529,7 +529,9 @@ function Incomes() {
                     <td>
                       {
                         /* {element.document} */ <a
-                          href={`https://pruebasgestion.blob.core.windows.net/imagenes/${element.document}`}
+                          href={`${import.meta.env.VITE_ARCHIVOS_URL}/${
+                            import.meta.env.VITE_ARCHIVOS_CONTAINER_NAME
+                          }/${element.document}`}
                           download="archivo.txt"
                         >
                           {element.document}
